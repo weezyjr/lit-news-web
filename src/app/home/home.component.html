@@ -1,0 +1,5 @@
+<div class="container card-background-page py-2" >
+  <div *ngFor="let cat of cats" class="my-3 card" (click)="goToNews(cat.title)" [ngStyle]="{ 'background-image': 'url(' + cat.img + ')'}">
+    <div class="card-title">{{cat.title}}</div>
+  </div>
+<div>
