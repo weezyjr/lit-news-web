@@ -8,7 +8,7 @@ import { NewsService } from '../../../services/news.service';
 })
 export class SingleNewsComponent implements OnInit {
 
-  public article: Object;
+  public article: any;
   constructor(private newsService: NewsService) {
     this.newsService.getCurrentArticle().subscribe(article =>
       this.article = article);
