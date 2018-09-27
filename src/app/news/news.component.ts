@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../services/news.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-news',
@@ -14,7 +15,12 @@ export class NewsComponent implements OnInit {
   public currentArticle: Object;
   public query: String;
   public articles: Array<Object>;
-  constructor(private router: Router, public newsService: NewsService, private activatedRoute: ActivatedRoute) {
+  constructor(
+    public newsService: NewsService,
+    private activatedRoute: ActivatedRoute,
+    private spinner: NgxSpinnerService) {
+
+    // get category name from nav params
     this.cat = this.activatedRoute.snapshot.paramMap.get('cat');
 
     // get news of this category
@@ -28,6 +34,8 @@ export class NewsComponent implements OnInit {
       this.currentArticle = this.articles[0];
       this.newsService.setCurrentArticle(this.currentArticle);
 
+      // hide loader
+      this.spinner.hide();
     });
 
   }
@@ -53,6 +61,8 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
+      /** spinner starts on init */
+      this.spinner.show();
   }
 
 }

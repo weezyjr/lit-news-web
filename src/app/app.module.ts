@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +12,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { SingleNewsComponent } from './news/single-news/single-news.component';
-import { HttpClientModule } from '@angular/common/http';
 
 import {
   SocialLoginModule,
@@ -43,6 +44,7 @@ export function getAuthServiceConfigs() {
     SingleNewsComponent
   ],
   imports: [
+    NgxSpinnerModule,
     FormsModule,
     SocialLoginModule,
     HttpClientModule,

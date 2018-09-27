@@ -1,3 +1,10 @@
+<ngx-spinner bdColor="#26b7a0" size="large" color="#fff" type="fire">
+  <p style="color: white">
+    <br/> <br/>
+    Loading ...
+  </p>
+</ngx-spinner>
+
 <div class="container">
   <div class="row col-12 py-3 m-auto">
     <input class="form-control form-control-lg" (input)="search()" [(ngModel)]="query" type="text" placeholder="Search...">
@@ -5,8 +12,9 @@
   <div class="row py-2">
     <div class="col-md-4">
       <div class="list-group">
-        <button type="button" [class.active]="currentArticle == article" (click)="goToSingleNews(article)" *ngFor="let article of articles" class="list-group-item list-group-item-action">
-            <img src="../../assets/imgs/rss.png" width="30" height="30" alt="rss">
+        <button type="button" [class.active]="currentArticle == article" (click)="goToSingleNews(article)" *ngFor="let article of articles"
+          class="list-group-item list-group-item-action">
+          <img src="../../assets/imgs/rss.png" width="30" height="30" alt="rss">
           {{article?.title}}
         </button>
       </div>
